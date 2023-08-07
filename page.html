@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Cache-control" content="public">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MFA Tool</title>
+</head>
+
+<body>
+    <noscript><h1>This tool does not work without JavaScript enabled.</h1></noscript>
+    <button onclick="window.close()">close</button>
+    <h4 id="Time"></h4>
+    <div id="displays"></div>
+    <div id="instructions" hidden="true">
+        <pre>
+The close button is only useful if this page is opened from a script. 
+
+Usage:
+Put key table as a query string like this behind the URL:
+
+?k=
+QueryName1,key1;
+QueryName2,key2,o:v;
+QueryName3,key3,o:v,o:v,o:v;
+&t=timestamp
+
+k is the string storing the list of all credentials, t is the freezed timestamp. 
+
+Setting the k is all you need:
+- QueryName is the name you give to each password. Required field.
+- key is the secret key. Required field.
+- "o:v" means options:value pair. Omit them if you don't need. Refer to 'Custom options'.
+
+t is the set freezed timestamp. Omit this whole line if you don't need. More info at the end. 
+
+Here is an simple example of only one password:
+?k=TestMFA,JBSWY3DPEHPK3PXP
+You can paste this line after the current URL and see it work.
+
+Attention on Formatting:
+Semicolons only needed if you use more than one password.
+Do not leave empty semicolons(;). Abide the format strictly to avoid parse errors.
+Do not put spaces and non-alphanumerical values in the QueryName except for '-' and '_'. 
+Carriage return and spaces are only for readability here. Do not put them in.
+
+Custom options:
+d: digits (6)
+a: algorithm (sha-1)
+p: period (30 sec)
+Write in the format of 'options:value', i.e. "d:8".
+
+Freezed timestamp:
+This variable is an integer of seconds passed from Unix Epoch. 
+The program defaults to current time. 
+You only need to set this if you want to see the password from past or future. 
+
+
+
+------
+
+Written by Yrr0r with the frustration of school password policy. 
+
+        </pre>
+    </div>
+    <script>
+//SCRIPTINSERTKEYWORD
+    </script>
+</body>
